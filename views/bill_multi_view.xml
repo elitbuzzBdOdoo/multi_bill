@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="bill_multi_form_view" model="ir.ui.view">
+            <field name="name">bill.multi.form</field>
+            <field name="model">bill.multi</field>
+            <field name="arch" type="xml">
+                <form string="Multi Bill Payment Form">
+                    <header>
+                        <button name="bill_multi_validate" string="VALIDATE" type="object"
+                                class="btn-primary" data-hotkey="v"/>
+                        <button name="bill_multi_cancel" string="CANCEL" type="object"
+                                class="btn-danger" data-hotkey="v"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="multi_bill_id"/>
+                            <field name="vendor_name"/>
+                            <field name="payment_method"/>
+                            <field name="company_name"/>
+                            <field name="payment_amount"/>
+                            <field name="total_due"/>
+                            <field name="payment_date"/>
+                            <field name="cash_balance"/>
+                            <field name="note"/>
+                            <field name="state" invisible="1"/>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <!--                        <field name="message_follower_ids"/>-->
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="bill_multi_tree_view" model="ir.ui.view">
+            <field name="name">bill.multi.tree</field>
+            <field name="model">bill.multi</field>
+            <field name="arch" type="xml">
+                <tree string="Multi Bill Payment Tree">
+                    <field name="multi_bill_id"/>
+                    <field name="vendor_name"/>
+                    <field name="payment_method"/>
+                    <field name="company_name"/>
+                    <field name="payment_amount"/>
+                    <field name="total_due"/>
+                    <field name="payment_date"/>
+                    <field name="cash_balance"/>
+                    <field name="note"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="bill_multi_act_window" model="ir.actions.act_window">
+            <field name="name">Multi Bill Payment</field>
+            <field name="res_model">bill.multi</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Multi Bill Payment" id="bill_multi_menu" parent="account.menu_finance_payables"
+                  action="bill_multi_act_window"/>
+
+    </data>
+</odoo>

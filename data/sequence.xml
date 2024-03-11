@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="bill_multi_sequence" model="ir.sequence">
+            <field name="name">Multi Bill Code</field>
+            <field name="code">bill.multi</field>
+            <field name="prefix">MB-0</field>
+            <field name="padding">2</field>
+        </record>
+    </data>
+</odoo>
